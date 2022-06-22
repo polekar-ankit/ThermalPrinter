@@ -466,10 +466,10 @@ public class EscPosPrinterCommands {
             //this.printerConnection.write(EscPosPrinterCommands.TEXT_FONT_A);
 
 
-            if (!Arrays.equals(this.currentTextSize, textSize)) {
+//            if (!Arrays.equals(this.currentTextSize, textSize)) {
                 this.printerConnection.write(textSize);
                 this.currentTextSize = textSize;
-            }
+//            }
 
             if (!Arrays.equals(this.currentTextDoubleStrike, textDoubleStrike)) {
                 this.printerConnection.write(textDoubleStrike);
