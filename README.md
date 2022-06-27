@@ -1,4 +1,6 @@
-[![Jitpack package repository - ESCPOS-ThermalPrinter-Android v3.2.0](https://jitpack.io/v/DantSu/ESCPOS-ThermalPrinter-Android.svg)](https://jitpack.io/#DantSu/ESCPOS-ThermalPrinter-Android/3.2.0)
+## This Library is taken from  https://github.com/DantSu/ESCPOS-ThermalPrinter-Android and made changes according to my requirement.
+
+[![](https://jitpack.io/v/polekar-ankit/ThermalPrinter.svg)](https://jitpack.io/#polekar-ankit/ThermalPrinter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Android library for ESC/POS Thermal Printer
@@ -75,9 +77,8 @@ allprojects {
 
 ```
 dependencies {
-    ...
-    implementation 'com.github.DantSu:ESCPOS-ThermalPrinter-Android:3.2.0'
-}
+	        implementation 'com.github.polekar-ankit:ThermalPrinter:3.4.0'
+	}
 ```
 
 ## Bluetooth
