@@ -1,4 +1,4 @@
-## This Library is taken from  https://github.com/DantSu/ESCPOS-ThermalPrinter-Android and made changes according to my requirement.
+### This Library is taken from  https://github.com/DantSu/ESCPOS-ThermalPrinter-Android and made changes according to my requirement.
 
 [![](https://jitpack.io/v/polekar-ankit/ThermalPrinter.svg)](https://jitpack.io/#polekar-ankit/ThermalPrinter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
