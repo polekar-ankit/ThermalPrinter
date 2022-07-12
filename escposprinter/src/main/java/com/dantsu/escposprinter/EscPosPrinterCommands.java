@@ -3,6 +3,7 @@ package com.dantsu.escposprinter;
 import android.graphics.Bitmap;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.EnumMap;
 
@@ -41,7 +42,8 @@ public class EscPosPrinterCommands {
     public static final byte[] TEXT_FONT_E = new byte[]{0x1B, 0x4D, 0x04};
 
     public static final byte[] TEXT_SIZE_NORMAL = new byte[]{0x1D, 0x21, 0x00};
-    public static final byte[] TEXT_SIZE_SMALL = new byte[]{0x1B, 0x21, 0x01};
+    public static final byte[] TEXT_SIZE_SMALL = new byte[]{0x1B, 0x21, 0x00};
+//    public static final byte[] TEXT_SIZE_SMALL = new byte[]{0x1B, 0x21, 0x01};
     public static final byte[] TEXT_SIZE_DOUBLE_HEIGHT = new byte[]{0x1D, 0x21, 0x01};
     public static final byte[] TEXT_SIZE_DOUBLE_WIDTH = new byte[]{0x1D, 0x21, 0x10};
     public static final byte[] TEXT_SIZE_BIG = new byte[]{0x1D, 0x21, 0x11};
@@ -463,12 +465,14 @@ public class EscPosPrinterCommands {
         try {
             byte[] textBytes = text.getBytes(this.charsetEncoding.getName());
             this.printerConnection.write(this.charsetEncoding.getCommand());
-            //this.printerConnection.write(EscPosPrinterCommands.TEXT_FONT_A);
+//            this.printerConnection.write(EscPosPrinterCommands.TEXT_FONT_B);
 
+            this.printerConnection.write(new byte[]{0x1B, 0x21, 0x00});
+            this.printerConnection.write(new byte[]{0x1B, 0x4D, 0x01});
 
 //            if (!Arrays.equals(this.currentTextSize, textSize)) {
-                this.printerConnection.write(textSize);
-                this.currentTextSize = textSize;
+//            this.printerConnection.write(textSize);
+            this.currentTextSize = textSize;
 //            }
 
             if (!Arrays.equals(this.currentTextDoubleStrike, textDoubleStrike)) {
@@ -753,5 +757,12 @@ public class EscPosPrinterCommands {
      */
     public EscPosCharsetEncoding getCharsetEncoding() {
         return this.charsetEncoding;
+    }
+
+    public void printTextWitoutFormat(String text) throws EscPosConnectionException {
+        this.printerConnection.write(new byte[]{0x1B, 0x21, 0x00});
+        this.printerConnection.write(new byte[]{0x1B, 0x4D, 0x01});
+        this.printerConnection.write(text.getBytes());
+        newLine();
     }
 }

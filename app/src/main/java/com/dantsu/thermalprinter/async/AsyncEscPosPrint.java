@@ -63,7 +63,7 @@ public abstract class AsyncEscPosPrint extends AsyncTask<AsyncEscPosPrinter, Int
                     printerData.getPrinterDpi(),
                     printerData.getPrinterWidthMM(),
                     printerData.getPrinterNbrCharactersPerLine(),
-                    new EscPosCharsetEncoding("windows-1252", 16)
+                    new EscPosCharsetEncoding("windows-1252", 8)
             );
 
             // printer.useEscAsteriskCommand(true);
@@ -73,6 +73,7 @@ public abstract class AsyncEscPosPrint extends AsyncTask<AsyncEscPosPrinter, Int
             String[] textsToPrint = printerData.getTextsToPrint();
 
             for(String textToPrint : textsToPrint) {
+//                printer.printWithoutFormat(textToPrint);
                 printer.printFormattedTextAndCut(textToPrint);
                 Thread.sleep(500);
             }
@@ -82,16 +83,13 @@ public abstract class AsyncEscPosPrint extends AsyncTask<AsyncEscPosPrinter, Int
         } catch (EscPosConnectionException e) {
             e.printStackTrace();
             return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_PRINTER_DISCONNECTED);
-        } catch (EscPosParserException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_PARSER_ERROR);
         } catch (EscPosEncodingException e) {
             e.printStackTrace();
-            return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_ENCODING_ERROR);
         } catch (EscPosBarcodeException e) {
             e.printStackTrace();
-            return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_BARCODE_ERROR);
-        } catch (InterruptedException e) {
+        } catch (EscPosParserException e) {
             e.printStackTrace();
         }
         return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_SUCCESS);

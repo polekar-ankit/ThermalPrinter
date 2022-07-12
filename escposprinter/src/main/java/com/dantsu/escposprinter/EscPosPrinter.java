@@ -150,6 +150,11 @@ public class EscPosPrinter extends EscPosPrinterSize {
         return this.printFormattedTextAndCut(text, 20f);
     }
 
+    public EscPosPrinter printWithoutFormat(String text) throws EscPosConnectionException {
+        this.printer.printTextWitoutFormat(text);
+        return this;
+    }
+
     /**
      * Print a formatted text and cut the paper. Read the README.md for more information about text formatting options.
      *
