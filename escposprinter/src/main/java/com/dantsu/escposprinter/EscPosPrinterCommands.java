@@ -470,15 +470,15 @@ public class EscPosPrinterCommands {
         try {
             byte[] textBytes = text.getBytes(this.charsetEncoding.getName());
             this.printerConnection.write(this.charsetEncoding.getCommand());
-            this.printerConnection.write(EscPosPrinterCommands.TEXT_FONT_B);
 
 //            this.printerConnection.write(new byte[]{0x1B, 0x21, 0x00});
 //            this.printerConnection.write(new byte[]{0x1B, 0x4D, 0x01});
 
-            if (!Arrays.equals(this.currentTextSize, textSize)) {
+//            if (!Arrays.equals(this.currentTextSize, textSize)) {
                 this.printerConnection.write(textSize);
+            this.printerConnection.write(EscPosPrinterCommands.TEXT_FONT_B);
                 this.currentTextSize = textSize;
-            }
+//            }
 
             if (!Arrays.equals(this.currentTextDoubleStrike, textDoubleStrike)) {
                 this.printerConnection.write(textDoubleStrike);

@@ -295,8 +295,12 @@ public class MainActivity extends AppCompatActivity {
     public AsyncEscPosPrinter getAsyncEscPosPrinter(DeviceConnection printerConnection) {
         SimpleDateFormat format = new SimpleDateFormat("'on' yyyy-MM-dd 'at' HH:mm:ss");
         AsyncEscPosPrinter printer = new AsyncEscPosPrinter(printerConnection, 203, 80f, 64);
-//        return printer.addTextToPrint("[C]Ankit Polekar\n[C]Malanka-415612\n"+getDevider(64));
-        return printer.addTextToPrint("Ankit Polekar\nMalanka-415612\n"+getDevider(64));
+        return printer.addTextToPrint("[C]Ankit Polekar\n" +
+                "[C]Malanka-415612\n" +
+                "[R]gst no : 27993667ABDGC663\n" +
+                getDevider(64)+"\n"
+                +"Invoice No: Mobile 24");
+//        return printer.addTextToPrint("Ankit Polekar\nMalanka-415612\n"+getDevider(64));
     }
 
     public String getDevider(int no) {
