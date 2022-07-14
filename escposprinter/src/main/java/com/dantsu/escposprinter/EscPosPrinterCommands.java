@@ -41,7 +41,7 @@ public class EscPosPrinterCommands {
     public static final byte[] TEXT_FONT_D = new byte[]{0x1B, 0x4D, 0x03};
     public static final byte[] TEXT_FONT_E = new byte[]{0x1B, 0x4D, 0x04};
 
-//    public static final byte[] TEXT_SIZE_NORMAL = new byte[]{0x1D, 0x21, 0x00};
+    //    public static final byte[] TEXT_SIZE_NORMAL = new byte[]{0x1D, 0x21, 0x00};
     public static final byte[] TEXT_SIZE_NORMAL = new byte[]{0x1B, 0x21, 0x00};
     public static final byte[] TEXT_SIZE_SMALL = new byte[]{0x1B, 0x21, 0x02};
 
@@ -699,7 +699,7 @@ public class EscPosPrinterCommands {
             return this;
         }
 
-//        if (!removeExtraNewLine)
+        if (!removeExtraNewLine)
             this.printerConnection.write(new byte[]{EscPosPrinterCommands.LF});
         this.printerConnection.send();
 
@@ -766,7 +766,8 @@ public class EscPosPrinterCommands {
     }
 
     public void printTextWitoutFormat(String text) throws EscPosConnectionException {
-        this.printerConnection.write(EscPosPrinterCommands.TEXT_SIZE_BIG);
+        this.printerConnection.write(EscPosPrinterCommands.TEXT_SIZE_SMALL);
+        this.printerConnection.write(new byte[]{0x1B, 0x61, 0x31});//center
         this.printerConnection.write(new byte[]{0x1B, 0x4D, 0x01});
         this.printerConnection.write(text.getBytes());
         newLine(false);
