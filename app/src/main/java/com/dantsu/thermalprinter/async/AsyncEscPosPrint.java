@@ -73,8 +73,9 @@ public abstract class AsyncEscPosPrint extends AsyncTask<AsyncEscPosPrinter, Int
             String[] textsToPrint = printerData.getTextsToPrint();
 
             for(String textToPrint : textsToPrint) {
-//                printer.printWithoutFormat(textToPrint);
-                printer.printFormattedTextAndCut(textToPrint);
+                printer.printWithoutFormat(textToPrint);
+//                printer.removeExtraNewLine();
+//                printer.printFormattedTextAndCut(textToPrint);
                 Thread.sleep(500);
             }
 
@@ -85,13 +86,15 @@ public abstract class AsyncEscPosPrint extends AsyncTask<AsyncEscPosPrinter, Int
             return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_PRINTER_DISCONNECTED);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } catch (EscPosEncodingException e) {
-            e.printStackTrace();
-        } catch (EscPosBarcodeException e) {
-            e.printStackTrace();
-        } catch (EscPosParserException e) {
-            e.printStackTrace();
         }
+
+//        catch (EscPosEncodingException e) {
+//            e.printStackTrace();
+//        } catch (EscPosBarcodeException e) {
+//            e.printStackTrace();
+//        } catch (EscPosParserException e) {
+//            e.printStackTrace();
+//        }
         return new PrinterStatus(printerData, AsyncEscPosPrint.FINISH_SUCCESS);
     }
 

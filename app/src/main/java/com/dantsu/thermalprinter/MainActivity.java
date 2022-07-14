@@ -296,7 +296,8 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("'on' yyyy-MM-dd 'at' HH:mm:ss");
         AsyncEscPosPrinter printer = new AsyncEscPosPrinter(printerConnection, 203, 80f, 48);
         return printer.addTextToPrint(
-                "[C]Ankit Polekar\n" +
+//                "<img>"+PrinterTextParserImg.bitmapToHexadecimalString(printer, this.getApplicationContext().getResources().getDrawableForDensity(R.drawable.logo, DisplayMetrics.DENSITY_MEDIUM))+"</img>\n" +
+                "[C]<font size='wide'>Ankit Polekar</font>\n" +
                         "[C]Malanka-415612\n" +
                         getDevider(48)
         );

@@ -129,6 +129,11 @@ public class PrinterTextParserBarcode implements IPrinterTextParserElement {
         return this.length;
     }
 
+    @Override
+    public int noOfCharacter() {
+        return 0;
+    }
+
     /**
      * Print barcode
      *

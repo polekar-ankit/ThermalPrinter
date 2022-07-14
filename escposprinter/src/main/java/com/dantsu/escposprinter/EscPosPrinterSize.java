@@ -12,6 +12,7 @@ public abstract class EscPosPrinterSize {
     protected int printerNbrCharactersPerLine;
     protected int printerWidthPx;
     protected int printerCharSizeWidthPx;
+    protected boolean removeExtraNewLine = false;
 
     protected EscPosPrinterSize(int printerDpi, float printerWidthMM, int printerNbrCharactersPerLine) {
         this.printerDpi = printerDpi;

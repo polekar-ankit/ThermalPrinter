@@ -101,6 +101,17 @@ public class EscPosPrinter extends EscPosPrinterSize {
     }
 
     /**
+     * For some printer extra new empty line will print after every line so to remove this line call this ethod
+     */
+    public void removeExtraNewLine() {
+        this.removeExtraNewLine = true;
+    }
+
+    public void setExtraNewLine() {
+        this.removeExtraNewLine = false;
+    }
+
+    /**
      * Print a formatted text. Read the README.md for more information about text formatting options.
      *
      * @param text          Formatted text to be printed.
@@ -121,19 +132,24 @@ public class EscPosPrinter extends EscPosPrinterSize {
 
         for (PrinterTextParserLine line : linesParsed) {
             PrinterTextParserColumn[] columns = line.getColumns();
-
+            int noOfChar = 0;
             IPrinterTextParserElement lastElement = null;
             for (PrinterTextParserColumn column : columns) {
                 IPrinterTextParserElement[] elements = column.getElements();
                 for (IPrinterTextParserElement element : elements) {
                     element.print(this.printer);
+                    noOfChar += element.noOfCharacter();
                     lastElement = element;
                 }
             }
 
             if (lastElement instanceof PrinterTextParserString) {
-                this.printer.newLine();
+                if (noOfChar < printerNbrCharactersPerLine)
+                    this.printer.newLine(false);
+                else
+                    this.printer.newLine(removeExtraNewLine);
             }
+
         }
 
         this.printer.feedPaper(dotsFeedPaper);

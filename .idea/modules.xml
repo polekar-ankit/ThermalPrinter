@@ -4,9 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ThermalPrinter.iml" filepath="$PROJECT_DIR$/.idea/modules/ThermalPrinter.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ThermalPrinter.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.iml" filepath="$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.main.iml" filepath="$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/escposprinter/ThermalPrinter.escposprinter.unitTest.iml" />
     </modules>

@@ -58,6 +58,11 @@ public class PrinterTextParserString implements IPrinterTextParserElement {
         return this.text.length() * coef;
     }
 
+    @Override
+    public int noOfCharacter() {
+        return text.length();
+    }
+
     /**
      * Print text
      *
