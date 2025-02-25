@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 def libraryVersionCode = 3003003
-def libraryVersionName = "3.3.6"
+def libraryVersionName = "3.3.7"
 
 android {
 
@@ -42,9 +42,8 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-//                from components.release
-                from components.findByName('release')
+            create("release", MavenPublication) {
+                from components.findByName("release")
                 groupId = 'com.github.DantSu'
                 artifactId = 'ESCPOS-ThermalPrinter-Android'
                 version = libraryVersionName
