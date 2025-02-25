@@ -60,19 +60,34 @@ public class BluetoothConnection extends DeviceConnection {
         }
 
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        bluetoothAdapter.cancelDiscovery();
+
         ParcelUuid[] uuids = this.device.getUuids();
         UUID uuid = (uuids != null && uuids.length > 0) ? uuids[0].getUuid() : UUID.randomUUID();
 
         try {
             this.socket = this.device.createRfcommSocketToServiceRecord(uuid);
-            bluetoothAdapter.cancelDiscovery();
+
             this.socket.connect();
             this.outputStream = this.socket.getOutputStream();
             this.data = new byte[0];
         } catch (IOException e) {
             e.printStackTrace();
             this.disconnect();
-            throw new EscPosConnectionException("Unable to connect to bluetooth device.");
+            try {
+                // Fallback method for some devices
+                this.socket = (BluetoothSocket) this.device.getClass()
+                        .getMethod("createRfcommSocket", int.class)
+                        .invoke(this.device, 1);
+                this.socket.connect();
+                this.outputStream = this.socket.getOutputStream();
+                this.data = new byte[0];
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                this.disconnect();
+                throw new EscPosConnectionException("Unable to connect to Bluetooth device.");
+            }
+
         }
         return this;
     }
