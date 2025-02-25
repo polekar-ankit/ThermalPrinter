@@ -39,18 +39,20 @@ dependencies {
 }
 
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            create("release", MavenPublication) {
-//                from components.findByName("release")
-//                groupId = 'com.github.DantSu'
-//                artifactId = 'ESCPOS-ThermalPrinter-Android'
-//                version = libraryVersionName
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            create("release", MavenPublication) {
+                artifact("$buildDir/outputs/aar/${project.name}-release.aar") {
+                    extension = "aar"
+                }
+                groupId = 'com.github.polekar-ankit'
+                artifactId = 'ESCPOS-ThermalPrinter-Android'
+                version = libraryVersionName
+            }
+        }
+    }
+}
 
 java {
     toolchain {
