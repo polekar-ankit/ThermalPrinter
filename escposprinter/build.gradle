@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 def libraryVersionCode = 3003003
-def libraryVersionName = "3.3.7"
+def libraryVersionName = "4.0.1"
 
 android {
 
