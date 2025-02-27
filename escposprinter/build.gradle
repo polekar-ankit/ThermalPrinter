@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 def libraryVersionCode = 3003003
-def libraryVersionName = "4.0.1"
+def libraryVersionName = "4.0.2"
 
 android {
 
@@ -44,9 +44,7 @@ afterEvaluate {
     publishing {
         publications {
             create("release", MavenPublication) {
-                artifact("$buildDir/outputs/aar/${project.name}-release.aar") {
-                    extension = "aar"
-                }
+                from components.findByName("release")
                 groupId = 'com.github.polekar-ankit'
                 artifactId = 'ThermalPrinter'
                 version = libraryVersionName
@@ -54,6 +52,7 @@ afterEvaluate {
         }
     }
 }
+
 
 java {
     toolchain {
