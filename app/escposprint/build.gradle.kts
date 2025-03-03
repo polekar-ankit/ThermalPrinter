@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.moven)
 }
 
 android {
@@ -28,6 +29,21 @@ android {
     }
 }
 
+afterEvaluate {
+    val releaseComponent = project.components.findByName("androidRelease")
+    if (releaseComponent != null) {
+        publishing.publications.create<MavenPublication>("release") {
+            from(releaseComponent)
+            groupId = "com.gipl."
+            artifactId = "escposprint"
+            version = "4.0.7"
+        }
+    } else {
+        println("⚠️ Warning: No 'release' component found!")
+    }
+}
+
+
 dependencies {
 
     implementation(libs.appcompat)
@@ -35,4 +51,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.core)
 }
