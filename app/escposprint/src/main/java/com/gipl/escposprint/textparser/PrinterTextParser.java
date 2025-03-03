@@ -1,6 +1,6 @@
 package com.gipl.escposprint.textparser;
 
-import com.gipl.escposprinter.EscPosPrinter;
+import com.gipl.escposprint.EscPosPrinter;
 import com.gipl.escposprint.EscPosPrinterCommands;
 import com.gipl.escposprint.exceptions.EscPosBarcodeException;
 import com.gipl.escposprint.exceptions.EscPosEncodingException;
