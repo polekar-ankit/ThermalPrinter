@@ -62,13 +62,22 @@ To test this library, it's pretty simple !
 
 ## Installation
 
-**Step 1.** Add the [JitPack](https://jitpack.io/#DantSu/ESCPOS-ThermalPrinter-Android/3.2.0) repository to your build file. Add it in your root `/build.gradle` at the end of repositories:
+**Step 1.** Add the repository to your build file. Add it in your root `/settings.gradle.kts` :
 
 ```
-allprojects {
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        ...
-        maven { url 'https://jitpack.io' }
+        google()
+        mavenCentral()
+//        maven { url = uri("https://jitpack.io") }
+        maven{
+            url = uri("https://maven.pkg.github.com/polekar-ankit/ThermalPrinter")
+            credentials {
+                username = "polekar-ankit"
+                password = "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"
+            }
+        }
     }
 }
 ```
@@ -77,7 +86,7 @@ allprojects {
 
 ```
 dependencies {
-	        implementation 'com.github.polekar-ankit:ThermalPrinter:3.4.0'
+	        implementation 'com.gipl.escposprint:escposprint:4.1.1'
 	}
 ```
 
