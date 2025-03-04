@@ -44,8 +44,8 @@ afterEvaluate {
         publications {
             create("release", MavenPublication) {
                 from components.findByName("release")
-                groupId = 'com.github.DantSu'
-                artifactId = 'ESCPOS-ThermalPrinter-Android'
+                groupId = 'com.github.polekar-ankit'
+                artifactId = 'ThermalPrinter'
                 version = libraryVersionName
             }
         }
