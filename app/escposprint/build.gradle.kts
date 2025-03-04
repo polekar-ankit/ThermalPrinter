@@ -24,8 +24,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -36,7 +36,7 @@ afterEvaluate {
             from(releaseComponent)
             groupId = "com.gipl"
             artifactId = "escposprint"
-            version = "4.0.8"
+            version = "4.0.9"
         }
     } else {
         println("⚠️ Warning: No 'release' component found!")
