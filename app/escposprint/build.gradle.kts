@@ -34,9 +34,9 @@ afterEvaluate {
     if (releaseComponent != null) {
         publishing.publications.create<MavenPublication>("release") {
             from(releaseComponent)
-            groupId = "com.gipl."
+            groupId = "com.gipl"
             artifactId = "escposprint"
-            version = "4.0.7"
+            version = "4.0.8"
         }
     } else {
         println("⚠️ Warning: No 'release' component found!")
