@@ -28,18 +28,25 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
-
-afterEvaluate {
-    val releaseComponent = project.components.findByName("androidRelease")
-    if (releaseComponent != null) {
-        publishing.publications.create<MavenPublication>("release") {
-            from(releaseComponent)
-            groupId = "com.gipl"
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.gipl.escposprint"
             artifactId = "escposprint"
-            version = "4.0.9"
+            version = "4.2.2"
+//            artifact("${layout.buildDirectory}/outputs/aar/escposprint-release.aar")
+            artifact("/Users/admin/Documents/Ankit/EzyBiller/printer_library/app/escposprint/build/outputs/aar/escposprint-release.aar")
         }
-    } else {
-        println("⚠️ Warning: No 'release' component found!")
+    }
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/polekar-ankit/ThermalPrinter")
+            credentials {
+                username = "polekar-ankit"
+                
+            }
+        }
     }
 }
 

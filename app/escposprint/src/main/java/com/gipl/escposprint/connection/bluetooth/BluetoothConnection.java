@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.ParcelUuid;
+import android.util.Log;
 
 import com.gipl.escposprint.connection.DeviceConnection;
 import com.gipl.escposprint.exceptions.EscPosConnectionException;
@@ -64,16 +65,16 @@ public class BluetoothConnection extends DeviceConnection {
 
         ParcelUuid[] uuids = this.device.getUuids();
         UUID uuid = (uuids != null && uuids.length > 0) ? uuids[0].getUuid() : UUID.randomUUID();
-
+        Log.d("UUID", uuid.toString());
         try {
+//            this.socket = this.device.createRfcommSocketToServiceRecord(uuid);
             this.socket = this.device.createRfcommSocketToServiceRecord(uuid);
-
             this.socket.connect();
             this.outputStream = this.socket.getOutputStream();
             this.data = new byte[0];
         } catch (IOException e) {
             e.printStackTrace();
-            this.disconnect();
+//            this.disconnect();
             try {
                 // Fallback method for some devices
                 this.socket = (BluetoothSocket) this.device.getClass()

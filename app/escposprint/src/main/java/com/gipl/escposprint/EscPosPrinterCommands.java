@@ -15,6 +15,7 @@ import com.google.zxing.qrcode.encoder.Encoder;
 import com.google.zxing.qrcode.encoder.QRCode;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.EnumMap;
 
@@ -768,7 +769,7 @@ public class EscPosPrinterCommands {
         this.printerConnection.write(EscPosPrinterCommands.TEXT_SIZE_SMALL);
         this.printerConnection.write(new byte[]{0x1B, 0x61, 0x31});//center
         this.printerConnection.write(new byte[]{0x1B, 0x4D, 0x01});
-        this.printerConnection.write(text.getBytes());
+        this.printerConnection.write(text.getBytes(StandardCharsets.UTF_8));
         newLine(false);
     }
 }

@@ -1,2 +1,13 @@
 # Project exclude paths
 /.gradle/
+/.idea/caches/deviceStreaming.xml
+/.idea/.gitignore
+/.idea/.name
+/.idea/appInsightsSettings.xml
+/.idea/compiler.xml
+/.idea/deploymentTargetSelector.xml
+/.idea/gradle.xml
+/.idea/migrations.xml
+/.idea/misc.xml
+/.idea/runConfigurations.xml
+/.idea/vcs.xml
